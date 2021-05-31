@@ -5,24 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tp-majuscule</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>TP-majuscule</title>
 </head>
 
 <body>
-    <div id="app">
-        <label for="">Message à mettre en majuscule : </label>
-        <input type="text" v-model="message">
-        <p>{{ majuscule }}</p>
+    <!-- Titre -->
+    <div class="jumbotron">
+        <h1 class="container">Exercice : TP-majuscule</h1>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>    
+    <!-- Application vue -->
+    <div id="app" class="container">
+        <!-- Message à transformer-->
+        <label>Message à transformer en majuscule : </label>
+        <input class="pl-1" type="text" v-model="message" placeholder="Insérer un message"><br>
+        <!-- Message transformé -->
+        <div class="d-flex">
+            <label>Message transformé -> </label>
+            <p class="ml-1">{{ majuscule }}</p>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
+        // Création de l'application Vue
         var app = new Vue({
+            // On s'attache à l'élément du DOM souhaité
             el: '#app',
+            // On déclare les données réactives
             data: {
-                message: 'Hello Vue !'
+                // Le message à transformer
+                message: ''
             },
             computed: {
                 majuscule: function () {
+                    // Renvoie le message en majuscule
                     return this.message.toUpperCase();
                 }
             }
